@@ -1,0 +1,10 @@
+---
+- name: Reset network connection
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Ensure connection Production is UP
+    community.general.nmcli:
+      conn_name: 'Production'
+      state: up
