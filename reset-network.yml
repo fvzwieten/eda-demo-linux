@@ -1,14 +1,10 @@
 ---
-- name: Reset network connection
-  hosts: all
+- name: Reset Server Port
+  hosts: "{{ server }}"
   become: true
 
   tasks:
-  - name: Ensure connection Production is UP
+  - name: Ensure Production port is UP
     community.general.nmcli:
       conn_name: 'Production'
       state: up
-  - name: pass server to follow up jobs if any
-    ansible.builtin.set_stats:
-      data:
-        server: "{{ inventory_hostname_short }}"
