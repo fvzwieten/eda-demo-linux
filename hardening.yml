@@ -1,6 +1,6 @@
 ---
 - name: this playbook hardens the linux box
-  hosts: all
+  hosts: "{[ server }}"
   become: true
 
   tasks:
