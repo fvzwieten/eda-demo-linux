@@ -1,0 +1,11 @@
+---
+- name: this playbook hardens the linux box
+  hosts: all
+  become: true
+
+  tasks:
+  - name: set selinux in enforcing mode
+    ansible.posix.selinux:
+      policy: targeted
+      state: enforcing
+      
